@@ -226,6 +226,7 @@ wx.ready(function(){
         },
         cancel: function () {
             // 用户取消分享后执行的回调函数
+            share_app_times -= 1;
             share_tip(share_app_times, share_timeline_times)
         }
     });
@@ -241,6 +242,7 @@ wx.ready(function(){
         },
         cancel: function () {
             // 用户取消分享后执行的回调函数
+            share_app_times -= 1;
             share_tip(share_app_times, share_timeline_times)
         }
     });
