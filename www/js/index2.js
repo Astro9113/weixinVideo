@@ -136,36 +136,14 @@ wx.config({
 //
 // });
 
+
+wx.ready(function(){
+    //批量隐藏功能
+    wx.hideMenuItems({
+        menuList: ['menuItem:share:timeline'] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+    });
+});
+
 wx.error(function(res){
     JSON.stringify(res)
 });
-
-
-function onBridgeReady() {
-    // WeixinJSBridge.call('hideOptionMenu');
-
-    wx.hideMenuItems({
-        menuList: [
-            'menuItem:readMode', // 阅读模式
-            'menuItem:share:timeline', // 分享到朋友圈
-            'menuItem:copyUrl' // 复制链接
-        ],
-        success: function (res) {
-            alert('已隐藏“阅读模式”，“分享到朋友圈”，“复制链接”等按钮');
-        },
-        fail: function (res) {
-            alert(JSON.stringify(res));
-        }
-    });
-}
-
-if (typeof WeixinJSBridge === "undefined") {
-    if (document.addEventListener) {
-        document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-    } else if (document.attachEvent) {
-        document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-        document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-    }
-} else {
-    onBridgeReady();
-}
