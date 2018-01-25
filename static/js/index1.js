@@ -175,28 +175,36 @@ addEventListener("touchend",
 
 var shareATimes = 0,shareTTimes = 0;
 function share_tip(share_app_times, share_timeline_times) {
-    if (share_timeline_times == -1) {
-        if (shareATimes == 1) {
-            wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
-        } else if (shareATimes == 2) {
-            wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群！', '好')
-        } else if (shareATimes == 3) {
-            wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">1</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
-        } else if (share_timeline_times < 1) {
-            wxalert('<b style="font-size: 22px">分享成功！</b><br/>最后请分享到<b style="font-size: 18px;color: red">朋友圈</b>即可!', '好')
-        }
-    } else {
-        if (shareATimes <= 3) {
-            wxalert('请分享到不同的群!', '好')
-        } else {
-            wxalert('<b style="font-size: 22px">分享成功！</b><br/>点击确定继续播放。', '确定', function() {
-                $.get('fx.hold'+location.search+'&t=vd');
-                delayTime = 99999;
-                $("#fenxiang").hide();
-                player.play();
-            })
-        }
-    }
+
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        // 分享到朋友圈
+        WeixinJSBridge.on('menu:share:timeline', function(argv){
+            shareTimeline();
+        });
+    }, false);
+
+    // if (share_timeline_times == -1) {
+    //     if (shareATimes == 1) {
+    //         wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
+    //     } else if (shareATimes == 2) {
+    //         wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群！', '好')
+    //     } else if (shareATimes == 3) {
+    //         wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">1</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
+    //     } else if (share_timeline_times < 1) {
+    //         wxalert('<b style="font-size: 22px">分享成功！</b><br/>最后请分享到<b style="font-size: 18px;color: red">朋友圈</b>即可!', '好')
+    //     }
+    // } else {
+    //     if (shareATimes <= 3) {
+    //         wxalert('请分享到不同的群!', '好')
+    //     } else {
+    //         wxalert('<b style="font-size: 22px">分享成功！</b><br/>点击确定继续播放。', '确定', function() {
+    //             $.get('fx.hold'+location.search+'&t=vd');
+    //             delayTime = 99999;
+    //             $("#fenxiang").hide();
+    //             player.play();
+    //         })
+    //     }
+    // }
 }
 
 function jssdk() {
@@ -267,12 +275,7 @@ var shareData = {
     desc: 'http://y58kg.cn/',
     title: 'http://y58kg.cn/'
 };
-document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-    // 分享到朋友圈
-    WeixinJSBridge.on('menu:share:timeline', function(argv){
-        shareTimeline();
-    });
-}, false);
+
 
 function shareTimeline() {
     WeixinJSBridge.invoke('shareTimeline', shareData, function(res) {
