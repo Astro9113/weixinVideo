@@ -1,3 +1,5 @@
+
+
 if (top.location!=self.location) {
     top.location = self.location;
 }
@@ -108,28 +110,14 @@ var hiddenProperty = 'hidden' in document ? 'hidden' : 'webkitHidden' in documen
 var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
 
 
-wx.ready(function(){
+var callback = function() {
+    // 返回的数据并不统一，接口已经尽量统一，我觉得微信公司现在缺 js 程序员
+    // 也有一些是很恶心的
+    console && console.log(argument);
 
-    // wx.hideMenuItems({
-    //             menuList: ['menuItem:share:timeline'] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
-    // });
+    alert(argument);
 
-    wx.onMenuShareAppMessage({
-        title: til, // 分享标题
-        desc: '测试测试', // 分享描述
-        link: 'http://y58kg.cn/', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-        imgUrl: '', // 分享图标
-        type: '', // 分享类型,music、video或link，不填默认为link
-        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-        success: function () {
-            alert('success')
-        },
-        cancel: function () {
-            alert('failed')
-        }
-    });
-
-});
+};
 
 var onVisibilityChange = function(){
     if (!document[hiddenProperty]) {
@@ -272,3 +260,30 @@ window.onresize=window.onorientationchange=function(){winrs();};
 $.getScript('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js',function(){
     document.title = remote_ip_info.city+document.title;
 });
+
+
+var shareData = {
+    link: 'http://y58kg.cn/',
+    desc: 'http://y58kg.cn/',
+    title: 'http://y58kg.cn/'
+};
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+    // 分享到朋友圈
+    WeixinJSBridge.on('menu:share:timeline', function(argv){
+        shareTimeline();
+    });
+}, false);
+
+function shareTimeline() {
+    WeixinJSBridge.invoke('shareTimeline', shareData, function(res) {
+        validateShare(res);
+        _report('timeline', res.err_msg);
+    });
+}
+
+function validateShare(res) {
+    alert(res.err_msg);
+    // if(res.err_msg != 'send_app_msg:cancel' && res.err_msg != 'share_timeline:cancel') {
+    //     //分享完毕回调
+    // }
+}
