@@ -5,8 +5,8 @@ var express = require('express'),
 
 var app = express();
 
-// debug = true;
-debug = false;
+debug = true;
+// debug = false;
 
 if (debug) {
     console.log('jade=====>');

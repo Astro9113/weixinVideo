@@ -8,8 +8,6 @@ exports.init = function (app) {
 		var url = req.protocol + '://' + req.host + req.originalUrl; //获取当前url
 		signature.sign(url,function(signatureMap){
 			signatureMap.appId = wechat_cfg.appid;
-
-			console.log('signatureMap', signatureMap);
 			res.render('index',signatureMap);
 		});
 	});
