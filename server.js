@@ -18,7 +18,7 @@ var app = express();
 
 app.use(express.static(path.join(__dirname, 'www')));
 
-var port = 4567 ;  //BAE 百度应用引擎默认端口号
+var port = 80 ;  //BAE 百度应用引擎默认端口号
  //中间件定义
 app.use(express.logger());
 app.use(express.compress());
