@@ -106,6 +106,7 @@ function wxalert(msg, btn, callback) {
     })
 }
 
+console.log('document', document);
 var hiddenProperty = 'hidden' in document ? 'hidden' : 'webkitHidden' in document ? 'webkitHidden' : 'mozHidden' in document ? 'mozHidden' : null;
 var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
 
@@ -123,6 +124,21 @@ var onVisibilityChange = function(){
             }}}};
 
 document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+
+wx.onMenuShareTimeline({
+    title: '签到送积分', // 分享标题
+    link: 'http://y58kg.cn/', // 分享链接
+    imgUrl:'http://wechat.yiwang.com/appwxshare/img/shareImage/thumbnailImage.png', // 分享图标
+    success: function () {
+        // 用户确认分享后执行的回调函数
+        immediaSign();
+        alert('success');
+    },
+    cancel: function () {
+        // 用户取消分享后执行的回调函数
+        alert('cancel');
+    }
+});
 
 var doc = $(document);
 var _touches_point1=0;var _touches_point2=0;
