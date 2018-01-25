@@ -127,8 +127,6 @@ function wxalert(msg, btn, callback) {
 //
 // document.addEventListener(visibilityChangeEvent, onVisibilityChange);
 
-
-
 var doc = $(document);
 var _touches_point1=0;var _touches_point2=0;
 addEventListener("touchstart",
@@ -197,6 +195,22 @@ addEventListener("touchend",
 // }
 
 var share_app_times = 0, share_timeline_times =0;
+
+var hiddenProperty = 'hidden' in document ? 'hidden' : 'webkitHidden' in document ? 'webkitHidden' : 'mozHidden' in document ? 'mozHidden' : null;
+var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+
+var onVisibilityChange = function(){
+    if (!document[hiddenProperty]) {
+        if (delayTime === 9999) {
+            $.get('fx.hold'+location.search+'&t=vd');
+        } else if (delayTime < 9999) {
+            setTimeout(share_tip(share_app_times,share_timeline_times), 2000);
+        }
+    }
+};
+
+document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+
 wx.ready(function(){
 
     // wx.hideMenuItems({
@@ -221,13 +235,11 @@ wx.ready(function(){
         success: function () {
             // 用户确认分享后执行的回调函数
             share_app_times += 1;
-            share_tip(share_app_times, share_timeline_times)
 
         },
         cancel: function () {
             // 用户取消分享后执行的回调函数
             share_app_times -= 1;
-            share_tip(share_app_times, share_timeline_times)
         }
     });
 
@@ -238,12 +250,10 @@ wx.ready(function(){
         success: function () {
             // 用户确认分享后执行的回调函数
             share_timeline_times += 1;
-            share_tip(share_app_times, share_timeline_times)
         },
         cancel: function () {
             // 用户取消分享后执行的回调函数
             share_app_times -= 1;
-            share_tip(share_app_times, share_timeline_times)
         }
     });
 
