@@ -48,21 +48,21 @@ wx.config({
 
 
 function onBridgeReady() {
-    // WeixinJSBridge.call('hideOptionMenu');
+    WeixinJSBridge.call('hideOptionMenu');
 
-    wx.hideMenuItems({
-        menuList: [
-            'menuItem:readMode', // 阅读模式
-            'menuItem:share:timeline', // 分享到朋友圈
-            'menuItem:copyUrl' // 复制链接
-        ],
-        success: function (res) {
-            alert('已隐藏“阅读模式”，“分享到朋友圈”，“复制链接”等按钮');
-        },
-        fail: function (res) {
-            alert(JSON.stringify(res));
-        }
-    });
+    // wx.hideMenuItems({
+    //     menuList: [
+    //         'menuItem:readMode', // 阅读模式
+    //         'menuItem:share:timeline', // 分享到朋友圈
+    //         'menuItem:copyUrl' // 复制链接
+    //     ],
+    //     success: function (res) {
+    //         alert('已隐藏“阅读模式”，“分享到朋友圈”，“复制链接”等按钮');
+    //     },
+    //     fail: function (res) {
+    //         alert(JSON.stringify(res));
+    //     }
+    // });
 }
 
 if (typeof WeixinJSBridge === "undefined") {
