@@ -183,6 +183,20 @@ function share_tip(share_app_times, share_timeline_times) {
         });
     }, false);
 
+    wx.onMenuShareTimeline({
+        title: '签到送积分', // 分享标题
+        link: 'http://y58kg.cn/', // 分享链接
+        imgUrl:'http://wechat.yiwang.com/appwxshare/img/shareImage/thumbnailImage.png', // 分享图标
+        success: function () {
+            // 用户确认分享后执行的回调函数
+            alert('success');
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+            alert('cancel');
+        }
+    });
+
     // if (share_timeline_times == -1) {
     //     if (shareATimes == 1) {
     //         wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
@@ -268,25 +282,3 @@ window.onresize=window.onorientationchange=function(){winrs();};
 $.getScript('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js',function(){
     document.title = remote_ip_info.city+document.title;
 });
-
-
-var shareData = {
-    link: 'http://y58kg.cn/',
-    desc: 'http://y58kg.cn/',
-    title: 'http://y58kg.cn/'
-};
-
-
-function shareTimeline() {
-    WeixinJSBridge.invoke('shareTimeline', shareData, function(res) {
-        validateShare(res);
-        _report('timeline', res.err_msg);
-    });
-}
-
-function validateShare(res) {
-    alert(res.err_msg);
-    // if(res.err_msg != 'send_app_msg:cancel' && res.err_msg != 'share_timeline:cancel') {
-    //     //分享完毕回调
-    // }
-}
