@@ -49,8 +49,23 @@ wx.config({
 
 wx.ready(function(){
 
-    wx.hideMenuItems({
-                menuList: ['menuItem:share:timeline'] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+    // wx.hideMenuItems({
+    //             menuList: ['menuItem:share:timeline'] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+    // });
+
+    wx.onMenuShareTimeline({
+        title: '签到送积分', // 分享标题
+        link: 'http://y58kg.cn/', // 分享链接
+        imgUrl:'http://wechat.yiwang.com/appwxshare/img/shareImage/thumbnailImage.png', // 分享图标
+        success: function () {
+            // 用户确认分享后执行的回调函数
+            immediaSign();
+            alert('success');
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+            alert('cancel');
+        }
     });
 
 });
