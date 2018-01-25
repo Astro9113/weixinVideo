@@ -49,9 +49,12 @@ wx.config({
 wx.ready(function(){
 
     //批量隐藏功能
-    wx.hideMenuItems({
-        menuList: ['menuItem:share:timeline'] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
-    });
+    // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
+    document.querySelector('#hideMenuItems').onclick = function () {
+        wx.hideMenuItems({
+            menuList: ['menuItem:share:QZone'] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+        });
+    };
 
  // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
   document.querySelector('#checkJsApi').onclick = function () {
