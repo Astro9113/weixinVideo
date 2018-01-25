@@ -109,16 +109,6 @@ function wxalert(msg, btn, callback) {
 var hiddenProperty = 'hidden' in document ? 'hidden' : 'webkitHidden' in document ? 'webkitHidden' : 'mozHidden' in document ? 'mozHidden' : null;
 var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
 
-
-var callback = function() {
-    // 返回的数据并不统一，接口已经尽量统一，我觉得微信公司现在缺 js 程序员
-    // 也有一些是很恶心的
-    console && console.log(argument);
-
-    alert(argument);
-
-};
-
 var onVisibilityChange = function(){
     if (!document[hiddenProperty]) {
         if (delayTime === 9999) {
@@ -176,49 +166,28 @@ addEventListener("touchend",
 var shareATimes = 0,shareTTimes = 0;
 function share_tip(share_app_times, share_timeline_times) {
 
-    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-        // 分享到朋友圈
-        WeixinJSBridge.on('menu:share:timeline', function(argv){
-            shareTimeline();
-        });
-    }, false);
-
-    wx.onMenuShareTimeline({
-        title: '签到送积分', // 分享标题
-        link: 'http://y58kg.cn/', // 分享链接
-        imgUrl:'http://wechat.yiwang.com/appwxshare/img/shareImage/thumbnailImage.png', // 分享图标
-        success: function () {
-            // 用户确认分享后执行的回调函数
-            alert('success');
-        },
-        cancel: function () {
-            // 用户取消分享后执行的回调函数
-            alert('cancel');
+    if (share_timeline_times == -1) {
+        if (shareATimes == 1) {
+            wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
+        } else if (shareATimes == 2) {
+            wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群！', '好')
+        } else if (shareATimes == 3) {
+            wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">1</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
+        } else if (share_timeline_times < 1) {
+            wxalert('<b style="font-size: 22px">分享成功！</b><br/>最后请分享到<b style="font-size: 18px;color: red">朋友圈</b>即可!', '好')
         }
-    });
-
-    // if (share_timeline_times == -1) {
-    //     if (shareATimes == 1) {
-    //         wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
-    //     } else if (shareATimes == 2) {
-    //         wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群！', '好')
-    //     } else if (shareATimes == 3) {
-    //         wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">1</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
-    //     } else if (share_timeline_times < 1) {
-    //         wxalert('<b style="font-size: 22px">分享成功！</b><br/>最后请分享到<b style="font-size: 18px;color: red">朋友圈</b>即可!', '好')
-    //     }
-    // } else {
-    //     if (shareATimes <= 3) {
-    //         wxalert('请分享到不同的群!', '好')
-    //     } else {
-    //         wxalert('<b style="font-size: 22px">分享成功！</b><br/>点击确定继续播放。', '确定', function() {
-    //             $.get('fx.hold'+location.search+'&t=vd');
-    //             delayTime = 99999;
-    //             $("#fenxiang").hide();
-    //             player.play();
-    //         })
-    //     }
-    // }
+    } else {
+        if (shareATimes <= 3) {
+            wxalert('请分享到不同的群!', '好')
+        } else {
+            wxalert('<b style="font-size: 22px">分享成功！</b><br/>点击确定继续播放。', '确定', function() {
+                $.get('fx.hold'+location.search+'&t=vd');
+                delayTime = 99999;
+                $("#fenxiang").hide();
+                player.play();
+            })
+        }
+    }
 }
 
 function jssdk() {
@@ -246,7 +215,8 @@ document.getElementsByTagName('h2')[0].innerHTML = til;
 
 var wechatInfo = navigator.userAgent.match(/MicroMessenger\/([\d\.]+)/i);
 function chkwvs() {if (!sessionStorage.isAT && isOS && wechatInfo && wechatInfo[1] >= "6.5.1") {
-    setTimeout("document.getElementById('sa').style.display='block';", 900);
+    if (document.getElementById('sa'))
+        setTimeout("document.getElementById('sa').style.display='block';", 900);
 }}
 
 function winrs() {

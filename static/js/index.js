@@ -47,28 +47,13 @@ wx.config({
 });
 
 
-// wx.ready(function(){
-//
-//     // wx.hideMenuItems({
-//     //             menuList: ['menuItem:share:timeline'] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
-//     // });
-//
-//     wx.onMenuShareAppMessage({
-//         title: '测试', // 分享标题
-//         desc: '测试测试', // 分享描述
-//         link: 'www.baidu.com', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-//         imgUrl: '', // 分享图标
-//         type: '', // 分享类型,music、video或link，不填默认为link
-//         dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-//         success: function () {
-//             alert('success')
-//         },
-//         cancel: function () {
-//             alert('failed')
-//         }
-//     });
-//
-// });
+wx.ready(function(){
+
+    wx.hideMenuItems({
+                menuList: ['menuItem:share:timeline'] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+    });
+
+});
 
 wx.error(function(res){
 	JSON.stringify(res)
