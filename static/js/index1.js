@@ -2,7 +2,10 @@ if (top.location!=self.location) {
     top.location = self.location;
 }
 
-var til='老婆带宝宝去饭庄吃饭被暴揍,老公火速赶来后,吓傻全🐻场',vid='m0527w6f8ze',delayTime = 213,isOS=!!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+var til='老婆带宝宝去饭庄吃饭被暴揍,老公火速赶来后,吓傻全🐻场',
+    vid='m0527w6f8ze',
+    delayTime = 213,
+    isOS=!!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
 
 
 
@@ -10,7 +13,9 @@ $('#likeNum').html(Number.parseInt(Math.random()*15000)+5000);
 
 var video, player, playStatus = 'pending';
 var elId = 'mod_player_skin_0';
+
 $("#js_content").html('<div id="'+elId+'" class="player_skin" style="padding-top:6px;"></div>');
+
 var elWidth = $("#js_content").width();
 playVideo(vid,elId,elWidth);
 $("#pauseplay").height($("#js_content").height() - 10);
@@ -163,7 +168,6 @@ function share_tip(share_app_times, share_timeline_times) {
             wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
         } else if (shareATimes == 2) {
             wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群！', '好')
-            //wxalert('<b style="font-size: 20px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请尝试分享到<b style="font-size: 18px;color: red">朋友圈</b>！', '好')
         } else if (shareATimes == 3) {
             wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">1</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
         } else if (share_timeline_times < 1) {
