@@ -6,9 +6,9 @@
 wx.config({
     debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
     appId: 'wx18d81c4e56a6dfea', // 必填，公众号的唯一标识
-    timestamp: '1516860907', // 必填，生成签名的时间戳
+    timestamp: '1516861995', // 必填，生成签名的时间戳
     nonceStr: 'Wm3WZYTPz0wzccnW', // 必填，生成签名的随机串
-    signature: '089d89ec45d332f160a1cae5efd2484f0a9c230e',// 必填，签名，见附录1
+    signature: 'b977b97e3c08162c53d133a1be8708211991e6e8',// 必填，签名，见附录1
     jsApiList: ['checkJsApi',
         'onMenuShareTimeline',
         'onMenuShareAppMessage',

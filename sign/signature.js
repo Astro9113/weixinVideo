@@ -5,7 +5,8 @@ var request = require('request'),
 
 exports.sign = function (url,callback) {
 	var noncestr = config.noncestr,
-		timestamp = Math.floor(Date.now()/1000), //精确到秒
+		// timestamp = Math.floor(Date.now()/1000), //精确到秒
+		timestamp = 1516861995,
 		jsapi_ticket;
 	if(cache.get('ticket')){
 		jsapi_ticket = cache.get('ticket');
