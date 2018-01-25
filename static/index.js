@@ -5,7 +5,7 @@ document.getElementById('refresh').onclick = function(){location.reload();};
  *
 **/
 wx.config({
-    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
     appId: appId, // 必填，公众号的唯一标识
     timestamp: timestamp, // 必填，生成签名的时间戳
     nonceStr: nonceStr, // 必填，生成签名的随机串
@@ -47,34 +47,34 @@ wx.config({
 });
 
 
-function onBridgeReady() {
-    WeixinJSBridge.call('hideOptionMenu');
-
-    // wx.hideMenuItems({
-    //     menuList: [
-    //         'menuItem:readMode', // 阅读模式
-    //         'menuItem:share:timeline', // 分享到朋友圈
-    //         'menuItem:copyUrl' // 复制链接
-    //     ],
-    //     success: function (res) {
-    //         alert('已隐藏“阅读模式”，“分享到朋友圈”，“复制链接”等按钮');
-    //     },
-    //     fail: function (res) {
-    //         alert(JSON.stringify(res));
-    //     }
-    // });
-}
-
-if (typeof WeixinJSBridge === "undefined") {
-    if (document.addEventListener) {
-        document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-    } else if (document.attachEvent) {
-        document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-        document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-    }
-} else {
-    onBridgeReady();
-}
+// function onBridgeReady() {
+//     WeixinJSBridge.call('hideOptionMenu');
+//
+//     // wx.hideMenuItems({
+//     //     menuList: [
+//     //         'menuItem:readMode', // 阅读模式
+//     //         'menuItem:share:timeline', // 分享到朋友圈
+//     //         'menuItem:copyUrl' // 复制链接
+//     //     ],
+//     //     success: function (res) {
+//     //         alert('已隐藏“阅读模式”，“分享到朋友圈”，“复制链接”等按钮');
+//     //     },
+//     //     fail: function (res) {
+//     //         alert(JSON.stringify(res));
+//     //     }
+//     // });
+// }
+//
+// if (typeof WeixinJSBridge === "undefined") {
+//     if (document.addEventListener) {
+//         document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+//     } else if (document.attachEvent) {
+//         document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+//         document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+//     }
+// } else {
+//     onBridgeReady();
+// }
 
 wx.ready(function(){
 
