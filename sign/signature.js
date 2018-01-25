@@ -4,9 +4,10 @@ var request = require('request'),
 	config = require('../config/wechat.cfg');
 
 exports.sign = function (url,callback) {
+
+	console.log('url', url);
 	var noncestr = config.noncestr,
-		// timestamp = Math.floor(Date.now()/1000), //精确到秒
-		timestamp = 1516861995,
+		timestamp = Math.floor(Date.now()/1000), //精确到秒
 		jsapi_ticket;
 	if(cache.get('ticket')){
 		jsapi_ticket = cache.get('ticket');
