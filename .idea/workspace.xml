@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="57f3035a-9b44-4390-aa09-ce92d6822251" name="Default" comment="" />
+    <list default="true" id="57f3035a-9b44-4390-aa09-ce92d6822251" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/MP_verify_NRVjQyfUEzRehD2z.txt" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -24,11 +27,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wechat.cfg.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="wechat.cfg.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/wechat.cfg.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="45" lean-forward="false" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
+              <caret line="3" column="45" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MP_verify_o07QvVPY7bkI5g5o.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/MP_verify_o07QvVPY7bkI5g5o.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MP_verify_NRVjQyfUEzRehD2z.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/MP_verify_NRVjQyfUEzRehD2z.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -130,6 +153,7 @@
         <option value="$PROJECT_DIR$/static/js/index1.js" />
         <option value="$PROJECT_DIR$/static/js/index.js" />
         <option value="$PROJECT_DIR$/config/wechat.cfg.js" />
+        <option value="$PROJECT_DIR$/static/MP_verify_NRVjQyfUEzRehD2z.txt" />
       </list>
     </option>
   </component>
@@ -190,12 +214,6 @@
             <path>
               <item name="weixinVideo" type="b2602c69:ProjectViewProjectNode" />
               <item name="weixinVideo" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="weixinVideo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weixinVideo" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -211,6 +229,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$/static/js" />
       <recent name="$PROJECT_DIR$/static/css" />
     </key>
@@ -246,12 +265,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1516848100860</updated>
-      <workItem from="1516848102211" duration="18368000" />
+      <workItem from="1516848102211" duration="18663000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18368000" />
+    <option name="totallyTimeSpent" value="18663000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -300,14 +319,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
           <caret line="156" column="7" lean-forward="true" selection-start-line="156" selection-start-column="7" selection-end-line="156" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/MP_verify_o07QvVPY7bkI5g5o.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -440,7 +451,23 @@
     <entry file="file://$PROJECT_DIR$/config/wechat.cfg.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="45" lean-forward="false" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
+          <caret line="3" column="45" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/MP_verify_o07QvVPY7bkI5g5o.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/MP_verify_NRVjQyfUEzRehD2z.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
