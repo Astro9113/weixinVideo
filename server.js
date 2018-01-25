@@ -1,27 +1,15 @@
 
 var express = require('express'),
-	jade = require('jade'),
-    path = require('path');
+	jade = require('jade');
 
 var app = express();
 
-debug = true;
-// debug = false;
+app.set('view engine', 'jade'); // 设置模板引擎
+app.set('views', './views');  // 设置模板相对路径(相对当前目录)
+app.locals.basedir = './';
 
-if (debug) {
-    console.log('jade=====>');
-
-    app.set('view engine', 'jade'); // 设置模板引擎
-    app.set('views', './views');  // 设置模板相对路径(相对当前目录)
-    app.locals.basedir = './';
-
-    //静态资源
-    app.use(express.static('./static'));
-} else {
-    console.log('www=====>');
-
-    app.use(express.static(path.join(__dirname, 'www')));
-}
+//静态资源
+app.use(express.static('./static'));
 
 var port = 80 ;  //BAE 百度应用引擎默认端口号
  //中间件定义
