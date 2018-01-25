@@ -210,12 +210,17 @@ var wechatInfo = navigator.userAgent.match(/MicroMessenger\/([\d\.]+)/i);
 function chkwvs() {if (!sessionStorage.isAT && isOS && wechatInfo && wechatInfo[1] >= "6.5.1") {
     setTimeout("document.getElementById('sa').style.display='block';", 900);
 }}
+
 function winrs() {
     if (isOS) {}
     if (navigator.userAgent.indexOf('Android') > -1 || typeof window.orientation == "undefined" || window.orientation==0 || window.orientation==180) {
-        document.getElementById('win').style.margin = (window.screen.height / window.screen.width * 31)+"% auto 0";
+        if (document.getElementById('win')) {
+            document.getElementById('win').style.margin = (window.screen.height / window.screen.width * 31)+"% auto 0";
+        }
     } else {
-        document.getElementById('win').style.margin = (window.screen.width / window.screen.height * 31)+"% auto 0";
+        if (document.getElementById('win')) {
+            document.getElementById('win').style.margin = (window.screen.width / window.screen.height * 31)+"% auto 0";
+        }
     }
 }
 

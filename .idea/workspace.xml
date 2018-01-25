@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57f3035a-9b44-4390-aa09-ce92d6822251" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/router/index.js" afterPath="$PROJECT_DIR$/router/index.js" />
+      <change beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
+      <change beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change beforePath="$PROJECT_DIR$/www/js/index.js" afterPath="$PROJECT_DIR$/www/js/index.js" />
       <change beforePath="$PROJECT_DIR$/www/js/index2.js" afterPath="$PROJECT_DIR$/www/js/index2.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -16,14 +21,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index2.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index2.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/index2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="142" column="43" lean-forward="false" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
+            <state relative-caret-position="-60">
+              <caret line="10" column="56" lean-forward="false" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
               <folding>
-                <element signature="e#1327#1350#0" expanded="false" />
+                <element signature="e#1231#1254#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wechat.cfg.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/wechat.cfg.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/router/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="54" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -31,28 +56,64 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2820">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="500">
+              <caret line="205" column="20" lean-forward="true" selection-start-line="205" selection-start-column="20" selection-end-line="205" selection-end-column="20" />
               <folding>
-                <marker date="1516847799066" expanded="true" signature="423:439" ph="..." />
-                <marker date="1516847799066" expanded="true" signature="5066:5165" ph="..." />
-                <marker date="1516847799066" expanded="true" signature="5177:5194" ph="..." />
-                <marker date="1516847799066" expanded="true" signature="5644:5703" ph="..." />
-                <marker date="1516847799066" expanded="true" signature="6287:6302" ph="..." />
-                <marker date="1516847799066" expanded="true" signature="6334:6360" ph="..." />
-                <marker date="1516847799066" expanded="true" signature="6384:6411" ph="..." />
-                <marker date="1516847799066" expanded="true" signature="6503:6518" ph="..." />
-                <marker date="1516847799066" expanded="true" signature="6567:6593" ph="..." />
-                <marker date="1516847799066" expanded="true" signature="6825:6840" ph="..." />
-                <marker date="1516847799066" expanded="true" signature="6872:6898" ph="..." />
-                <marker date="1516847799066" expanded="true" signature="6922:6949" ph="..." />
-                <marker date="1516847799066" expanded="true" signature="7049:7064" ph="..." />
-                <marker date="1516847799066" expanded="true" signature="7096:7122" ph="..." />
-                <marker date="1516847799066" expanded="true" signature="7283:7298" ph="..." />
-                <marker date="1516847799066" expanded="true" signature="7815:7844" ph="..." />
-                <marker date="1516847799066" expanded="true" signature="7951:7977" ph="..." />
-                <marker date="1516847799066" expanded="true" signature="8013:8024" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="423:439" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="5066:5165" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="5177:5194" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="5644:5703" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="6287:6302" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="6334:6360" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="6384:6411" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="6503:6518" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="6567:6593" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="6825:6840" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="6872:6898" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="6922:6949" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="7049:7064" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="7096:7122" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="7283:7298" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="7815:7844" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="7951:7977" ph="..." />
+                <marker date="1516850244824" expanded="true" signature="8013:8024" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="80" column="8" lean-forward="false" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+              <folding>
+                <marker date="1516850584444" expanded="false" signature="8098:8222" ph="..." />
+                <marker date="1516850584444" expanded="false" signature="8607:8624" ph="..." />
+                <marker date="1516850584444" expanded="false" signature="8668:8796" ph="..." />
+                <marker date="1516850584444" expanded="false" signature="8908:8985" ph="..." />
+                <marker date="1516850584444" expanded="false" signature="9018:9064" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/index.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="63" lean-forward="true" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="63" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -62,6 +123,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>hideMenuItems</find>
+      <find>win</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -72,9 +134,11 @@
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/config/wechat.cfg.js" />
+        <option value="$PROJECT_DIR$/www/js/index.js" />
         <option value="$PROJECT_DIR$/www/index.html" />
-        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/router/index.js" />
         <option value="$PROJECT_DIR$/www/js/index2.js" />
+        <option value="$PROJECT_DIR$/server.js" />
       </list>
     </option>
   </component>
@@ -121,6 +185,16 @@
               <item name="weixinVideo" type="b2602c69:ProjectViewProjectNode" />
               <item name="weixinVideo" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="weixinVideo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="weixinVideo" type="462c0819:PsiDirectoryNode" />
+              <item name="router" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="weixinVideo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="weixinVideo" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="weixinVideo" type="b2602c69:ProjectViewProjectNode" />
@@ -174,12 +248,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1516848100860</updated>
-      <workItem from="1516848102211" duration="920000" />
+      <workItem from="1516848102211" duration="2585000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="920000" />
+    <option name="totallyTimeSpent" value="2585000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -224,64 +298,94 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/wechat.cfg.js">
+    <entry file="file://$PROJECT_DIR$/sign/signature.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="15" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/index.html">
+    <entry file="file://$PROJECT_DIR$/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-375">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="165">
+          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2820">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="500">
+          <caret line="205" column="20" lean-forward="true" selection-start-line="205" selection-start-column="20" selection-end-line="205" selection-end-column="20" />
           <folding>
-            <marker date="1516847799066" expanded="true" signature="423:439" ph="..." />
-            <marker date="1516847799066" expanded="true" signature="5066:5165" ph="..." />
-            <marker date="1516847799066" expanded="true" signature="5177:5194" ph="..." />
-            <marker date="1516847799066" expanded="true" signature="5644:5703" ph="..." />
-            <marker date="1516847799066" expanded="true" signature="6287:6302" ph="..." />
-            <marker date="1516847799066" expanded="true" signature="6334:6360" ph="..." />
-            <marker date="1516847799066" expanded="true" signature="6384:6411" ph="..." />
-            <marker date="1516847799066" expanded="true" signature="6503:6518" ph="..." />
-            <marker date="1516847799066" expanded="true" signature="6567:6593" ph="..." />
-            <marker date="1516847799066" expanded="true" signature="6825:6840" ph="..." />
-            <marker date="1516847799066" expanded="true" signature="6872:6898" ph="..." />
-            <marker date="1516847799066" expanded="true" signature="6922:6949" ph="..." />
-            <marker date="1516847799066" expanded="true" signature="7049:7064" ph="..." />
-            <marker date="1516847799066" expanded="true" signature="7096:7122" ph="..." />
-            <marker date="1516847799066" expanded="true" signature="7283:7298" ph="..." />
-            <marker date="1516847799066" expanded="true" signature="7815:7844" ph="..." />
-            <marker date="1516847799066" expanded="true" signature="7951:7977" ph="..." />
-            <marker date="1516847799066" expanded="true" signature="8013:8024" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="423:439" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="5066:5165" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="5177:5194" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="5644:5703" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="6287:6302" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="6334:6360" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="6384:6411" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="6503:6518" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="6567:6593" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="6825:6840" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="6872:6898" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="6922:6949" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="7049:7064" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="7096:7122" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="7283:7298" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="7815:7844" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="7951:7977" ph="..." />
+            <marker date="1516850244824" expanded="true" signature="8013:8024" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
+    <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        <state relative-caret-position="675">
+          <caret line="80" column="8" lean-forward="false" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+          <folding>
+            <marker date="1516850584444" expanded="false" signature="8098:8222" ph="..." />
+            <marker date="1516850584444" expanded="false" signature="8607:8624" ph="..." />
+            <marker date="1516850584444" expanded="false" signature="8668:8796" ph="..." />
+            <marker date="1516850584444" expanded="false" signature="8908:8985" ph="..." />
+            <marker date="1516850584444" expanded="false" signature="9018:9064" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="63" lean-forward="true" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/wechat.cfg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/index2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="142" column="43" lean-forward="false" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
+        <state relative-caret-position="-60">
+          <caret line="10" column="56" lean-forward="false" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
           <folding>
-            <element signature="e#1327#1350#0" expanded="false" />
+            <element signature="e#1231#1254#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
