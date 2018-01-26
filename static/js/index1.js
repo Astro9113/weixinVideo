@@ -147,9 +147,10 @@ addEventListener("touchend", function(e) {
 var shareATimes = 0,shareTTimes = 0;
 wx.ready(function(){
 
-    // wx.hideMenuItems({
-    //             menuList: ['menuItem:share:timeline'] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
-    // });
+    wx.hideMenuItems({
+                menuList: ['menuItem:share:qq', 'menuItem:share:weiboApp', 'menuItem:favorite', 'menuItem:share:QZone',
+                'menuItem:openWithSafari', 'menuItem:share:email', 'menuItem:readMode'] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+    });
 
     wx.onMenuShareAppMessage({
         title: '签到送积分', // 分享标题
@@ -158,13 +159,26 @@ wx.ready(function(){
         success: function () {
             // 用户确认分享后执行的回调函数
             shareATimes += 1;
-            wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
 
+            if (shareATimes === 1) {
+                wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
+            } else if (shareATimes === 2) {
+                wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">1</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
+            } else if (shareATimes === 3) {
+                wxalert('<b style="font-size: 22px">分享成功！</b><br/>最后请分享到<b style="font-size: 18px;color: red">朋友圈</b>即可!', '好')
+            }
         },
         cancel: function () {
-            shareATimes = -1;
-            wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群！', '好')
             // 用户取消分享后执行的回调函数
+            shareATimes -=1;
+            if (shareATimes === -1) {
+                wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">3</b>个不同的群！', '好')
+            } else if (shareATimes === 0) {
+                wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群！', '好')
+            } else if (shareATimes === 1) {
+                wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">1</b>个不同的群！', '好')
+            }
+
         }
     });
 
@@ -175,10 +189,17 @@ wx.ready(function(){
         success: function () {
             // 用户确认分享后执行的回调函数
             shareTTimes += 1;
+            wxalert('<b style="font-size: 22px">分享成功！</b><br/>点击确定继续播放。', '确定', function() {
+                $.get('fx.hold'+location.search+'&t=vd');
+                delayTime = 99999;
+                $("#fenxiang").hide();
+                player.play();
+            })
         },
         cancel: function () {
             // 用户取消分享后执行的回调函数
             shareTTimes = -1;
+            wxalert('<b style="font-size: 22px">分享失败！</b><br>请分享到<b style="font-size: 18px;color: red">朋友圈</b>即可！', '好')
         }
     });
 
