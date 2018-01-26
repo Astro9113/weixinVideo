@@ -185,9 +185,9 @@ wx.ready(function(){
     });
 
     wx.onMenuShareTimeline({
-        title: '签到送积分', // 分享标题
-        link: 'http://y58kg.cn/', // 分享链接
-        imgUrl:'http://wechat.yiwang.com/appwxshare/img/shareImage/thumbnailImage.png', // 分享图标
+        title: '网路科技', // 分享标题
+        link: 'http://wanglutech.com/details/1/29', // 分享链接
+        imgUrl:'http://wanglutech.com/favicon.ico', // 分享图标
         success: function () {
             // 用户确认分享后执行的回调函数
             wxalert('<b style="font-size: 22px">分享成功！</b><br/>点击确定继续播放。', '确定', function() {
