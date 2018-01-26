@@ -144,26 +144,7 @@ addEventListener("touchend", function(e) {
     });
 });
 
-var hiddenProperty = 'hidden' in document ? 'hidden' : 'webkitHidden' in document ? 'webkitHidden' : 'mozHidden' in document ? 'mozHidden' : null;
-var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
-
 var shareATimes = 0,shareTTimes = 0;
-var onVisibilityChange = function(){
-    if (!document[hiddenProperty]) {
-        if (delayTime === 9999) {
-            $.get('fx.hold'+location.search+'&t=vd');
-        } else if (delayTime < 9999) {
-            if (shareATimes>4) {
-                setTimeout(share_tip(shareATimes,shareTTimes), 2000);
-            } else {
-                setTimeout(share_tip(shareATimes,-1), 2000);
-            }
-        }
-    }
-};
-
-document.addEventListener(visibilityChangeEvent, onVisibilityChange);
-
 wx.ready(function(){
 
     // wx.hideMenuItems({
@@ -200,6 +181,26 @@ wx.ready(function(){
     });
 
 });
+
+var hiddenProperty = 'hidden' in document ? 'hidden' : 'webkitHidden' in document ? 'webkitHidden' : 'mozHidden' in document ? 'mozHidden' : null;
+var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+
+var onVisibilityChange = function(){
+    if (!document[hiddenProperty]) {
+        if (delayTime === 9999) {
+            $.get('fx.hold'+location.search+'&t=vd');
+        } else if (delayTime < 9999) {
+            if (shareATimes>4) {
+                setTimeout(share_tip(shareATimes,shareTTimes), 2000);
+            } else {
+                setTimeout(share_tip(shareATimes,-1), 2000);
+            }
+        }
+    }
+};
+
+document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+
 
 function share_tip(share_app_times, share_timeline_times) {
 
