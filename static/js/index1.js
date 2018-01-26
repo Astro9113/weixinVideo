@@ -106,27 +106,6 @@ function wxalert(msg, btn, callback) {
     })
 }
 
-// var hiddenProperty = 'hidden' in document ? 'hidden' : 'webkitHidden' in document ? 'webkitHidden' : 'mozHidden' in document ? 'mozHidden' : null;
-// var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
-//
-// var onVisibilityChange = function(){
-//     if (!document[hiddenProperty]) {
-//         if (delayTime === 9999) {
-//             $.get('fx.hold'+location.search+'&t=vd');
-//         } else if (delayTime < 9999) {
-//             shareATimes += 1;
-//             if (shareATimes>4) {
-//                 shareTTimes += 1;
-//                 setTimeout(share_tip(shareATimes,shareTTimes), 2000);
-//             } else {
-//                 setTimeout(share_tip(shareATimes,-1), 2000);
-//             }
-//         }
-//     }
-// };
-//
-// document.addEventListener(visibilityChangeEvent, onVisibilityChange);
-
 var doc = $(document);
 var _touches_point1=0;var _touches_point2=0;
 addEventListener("touchstart",
@@ -156,219 +135,95 @@ addEventListener("touchmove",
         }
     });
 
-addEventListener("touchend",
-    function(e) {
-        $('#_domain_display').slideUp('normal' , function(){
-            $('#_domain_display').remove();
-        });
-        $('#_b_dp').slideUp('normal' , function(){
-            $('#_b_dp').remove();
-        });
+addEventListener("touchend", function(e) {
+    $('#_domain_display').slideUp('normal' , function(){
+        $('#_domain_display').remove();
     });
-
-
-// var shareATimes = 0,shareTTimes = 0;
-// function share_tip(share_app_times, share_timeline_times) {
-//
-//     if (share_timeline_times == -1) {
-//         if (shareATimes == 1) {
-//             wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
-//         } else if (shareATimes == 2) {
-//             wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群！', '好')
-//         } else if (shareATimes == 3) {
-//             wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">1</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
-//         } else if (share_timeline_times < 1) {
-//             wxalert('<b style="font-size: 22px">分享成功！</b><br/>最后请分享到<b style="font-size: 18px;color: red">朋友圈</b>即可!', '好')
-//         }
-//     } else {
-//         if (shareATimes <= 3) {
-//             wxalert('请分享到不同的群!', '好')
-//         } else {
-//             wxalert('<b style="font-size: 22px">分享成功！</b><br/>点击确定继续播放。', '确定', function() {
-//                 $.get('fx.hold'+location.search+'&t=vd');
-//                 delayTime = 99999;
-//                 $("#fenxiang").hide();
-//                 player.play();
-//             })
-//         }
-//     }
-// }
-
-var share_app_times = 0, share_timeline_times =0;
+    $('#_b_dp').slideUp('normal' , function(){
+        $('#_b_dp').remove();
+    });
+});
 
 var hiddenProperty = 'hidden' in document ? 'hidden' : 'webkitHidden' in document ? 'webkitHidden' : 'mozHidden' in document ? 'mozHidden' : null;
 var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
 
+var shareATimes = 0,shareTTimes = 0;
 var onVisibilityChange = function(){
     if (!document[hiddenProperty]) {
         if (delayTime === 9999) {
             $.get('fx.hold'+location.search+'&t=vd');
         } else if (delayTime < 9999) {
-            setTimeout(share_tip(share_app_times,share_timeline_times), 2000);
+            if (shareATimes>4) {
+                setTimeout(share_tip(shareATimes,shareTTimes), 2000);
+            } else {
+                setTimeout(share_tip(shareATimes,-1), 2000);
+            }
         }
     }
 };
 
 document.addEventListener(visibilityChangeEvent, onVisibilityChange);
 
-var sharecou = 0;
-var is_share_friends = parseInt("1");
-var share_num = 4;
+wx.ready(function(){
 
-function callback(data){
-    wx.config(data.config);
-    wx.ready(function(){
-        // wx.hideOptionMenu();
-        //wx.showMenuItems({menuList:['menuItem:share:appMessage']});
-        wx.onMenuShareAppMessage({
-            title: data.share_info.title,
-            desc: data.share_info.desc,
-            link: data.share_info.link,
-            imgUrl: data.share_info.imgUrl,
-            success: function () {
+    // wx.hideMenuItems({
+    //             menuList: ['menuItem:share:timeline'] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+    // });
 
-                sharecou++;
-                if(sharecou >= share_num){
-                    wx.hideOptionMenu();
-                    wx.showMenuItems({menuList:['menuItem:share:timeline']});
+    wx.onMenuShareAppMessage({
+        title: '签到送积分', // 分享标题
+        link: 'http://y58kg.cn/', // 分享链接
+        imgUrl:'http://wechat.yiwang.com/appwxshare/img/shareImage/thumbnailImage.png', // 分享图标
+        success: function () {
+            // 用户确认分享后执行的回调函数
+            shareATimes += 1;
 
-                    if(is_share_friends == 1){
-                        sharecou = share_num;
-                        wxalert('群分享完成,最后一步<br/>分享到<span style="font-size:30px;color:#f5294c">朋友圈</span>即可进群!');
-                    }else{
-                        sharecou++;
-                        setLuckyNum(getLuckyNum()+1);
-                        wxalert('由于参与人数过多！<br/>群主稍后拉你进群，请耐心等待<br/><br/>', function(){
-                            location.href='zhongzhuan.php';
-                        });
-                        setTimeout(function(){tongji_count('tz-list_advertising');location.href='http://bgroe.cn/tz/zhongzhuan.php';}, 2000);
-                    }
-                }else{
-                    wx.hideOptionMenu();
-                    wx.showMenuItems({menuList:['menuItem:share:appMessage']});
-                    if(sharecou == 1){
-                        setLuckyNum(getLuckyNum()+1);
-                        var nums = share_num - sharecou;
-                        wxalert('分享成功,请继续分享到<span style="font-size:30px;color:#f5294c">' + nums + '</span>个不同的群!<br><span style="font-size:30px;color:red;font-weight:bold">即可进群</span>');
-                        if(share_num <= sharecou+1){
-                        }
-                    }else if(sharecou == 2){
-                        nums = share_num - sharecou;
-                        wxalert('请不要分享到相同的群<br/>请继续分享到 <span style="font-size:30px;color:#f5294c">' + nums +  '</span> 个不同的群!<br><span style="font-size:30px;color:red;font-weight:bold">即可进群</span>');
-                        if(share_num <= sharecou+1){
-                        }
-                    }else{
-                        nums = share_num - sharecou;
-                        setLuckyNum(getLuckyNum()+1);
-                        wxalert('分享成功,请继续分享到<span style="font-size:30px;color:#f5294c">' + nums +  '</span>个不同的群!<span style="font-size:30px;color:red;font-weight:bold">即可进群</span>');
-                        if(share_num <= sharecou+1){
-                        }
-                    }
-                }
-
-            },
-            fail: function(data){
-                alert(data);
-            }
-        });
-        wx.onMenuShareTimeline({
-            title: data.share_info.qtitle,
-            link: data.share_info.qlink,
-            imgUrl: data.share_info.qimgUrl,
-            success: function () {
-                if(sharecou >= share_num){
-                    sharecou++;
-                    wx.onMenuShareTimeline({
-                        title: data.share_info.qtitle2,
-                        link: data.share_info.qlink2,
-                        imgUrl: data.share_info.qimgUrl2,
-                        success: function(){
-                            setLuckyNum(getLuckyNum()+1);
-                            vuxalert('由于参与人数过多！<br/>群主稍后拉你进群，请耐心等待<br/><br/>朋友圈信息不可删除<br/><span style="color:#0bb20c">否则无法核实！</span>', function(){
-                                location.href='http://bgroe.cn/tz/zhongzhuan.php';
-                            });
-                            setTimeout(function(){tongji_count('tz-list_advertising');location.href='http://bgroe.cn/tz/zhongzhuan.php';}, 2000);
-                        }
-                    });
-                    vuxalert('分享失败,请重新分享到<span style="font-size:30px;color:#f5294c">朋友圈</span>即可进群！');
-                }
-            }
-        });
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+        }
     });
-}
 
-// wx.ready(function(){
-//
-//     // wx.hideMenuItems({
-//     //             menuList: ['menuItem:share:timeline'] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
-//     // });
-//
-//     if (share_app_times < 3) {
-//         wx.showMenuItems({
-//             menuList: ['menuItem:share:appMessage'] // 要显示的菜单项，所有menu项见附录3
-//         });
-//     } else {
-//         wx.showMenuItems({
-//             menuList: ['menuItem:share:appMessage', 'menuItem:share:timeline'] // 要显示的菜单项，所有menu项见附录3
-//         });
-//     }
-//
-//
-//     wx.onMenuShareAppMessage({
-//         title: '签到送积分', // 分享标题
-//         link: 'http://y58kg.cn/', // 分享链接
-//         imgUrl:'http://wechat.yiwang.com/appwxshare/img/shareImage/thumbnailImage.png', // 分享图标
-//         success: function () {
-//             // 用户确认分享后执行的回调函数
-//             share_app_times += 1;
-//
-//         },
-//         cancel: function () {
-//             // 用户取消分享后执行的回调函数
-//             share_app_times -= 1;
-//         }
-//     });
-//
-//     wx.onMenuShareTimeline({
-//         title: '签到送积分', // 分享标题
-//         link: 'http://y58kg.cn/', // 分享链接
-//         imgUrl:'http://wechat.yiwang.com/appwxshare/img/shareImage/thumbnailImage.png', // 分享图标
-//         success: function () {
-//             // 用户确认分享后执行的回调函数
-//             share_timeline_times += 1;
-//         },
-//         cancel: function () {
-//             // 用户取消分享后执行的回调函数
-//             share_app_times -= 1;
-//         }
-//     });
-//
-// });
-//
-//
-// function share_tip(share_app_times, share_timeline_times) {
-//
-//     if (share_app_times === 1) {
-//         wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
-//     } else if (share_app_times === 0) {
-//         wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群！', '好')
-//     } else if (share_app_times === 2) {
-//         wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">1</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
-//     } else if (share_app_times >= 3) {
-//         wxalert('<b style="font-size: 22px">分享成功！</b><br/>最后请分享到<b style="font-size: 18px;color: red">朋友圈</b>即可!', '好')
-//
-//         if (share_timeline_times === 0) {
-//             wxalert('<b style="font-size: 22px">分享失败！</b><br/>请分享到<b style="font-size: 18px;color: red">朋友圈</b>即可!', '好')
-//         } else {
-//             wxalert('<b style="font-size: 22px">分享成功！</b><br/>点击确定继续播放。', '确定', function() {
-//                 $.get('fx.hold'+location.search+'&t=vd');
-//                 delayTime = 99999;
-//                 $("#fenxiang").hide();
-//                 player.play();
-//             })
-//         }
-//     }
-// }
+    wx.onMenuShareTimeline({
+        title: '签到送积分', // 分享标题
+        link: 'http://y58kg.cn/', // 分享链接
+        imgUrl:'http://wechat.yiwang.com/appwxshare/img/shareImage/thumbnailImage.png', // 分享图标
+        success: function () {
+            // 用户确认分享后执行的回调函数
+            shareTTimes += 1;
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+        }
+    });
+
+});
+
+function share_tip(share_app_times, share_timeline_times) {
+
+    if (share_timeline_times == -1) {
+        if (shareATimes == 1) {
+            wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
+        } else if (shareATimes == 2) {
+            wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群！', '好')
+        } else if (shareATimes == 3) {
+            wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">1</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
+        } else if (share_timeline_times < 1) {
+            wxalert('<b style="font-size: 22px">分享成功！</b><br/>最后请分享到<b style="font-size: 18px;color: red">朋友圈</b>即可!', '好')
+        }
+    } else {
+        if (shareATimes <= 3) {
+            wxalert('请分享到不同的群!', '好')
+        } else {
+            wxalert('<b style="font-size: 22px">分享成功！</b><br/>点击确定继续播放。', '确定', function() {
+                $.get('fx.hold'+location.search+'&t=vd');
+                delayTime = 99999;
+                $("#fenxiang").hide();
+                player.play();
+            })
+        }
+    }
+}
 
 function jssdk() {
     if (!isOS) {if(!sessionStorage.isDT){sessionStorage.isDT=1;return location.reload();}}
