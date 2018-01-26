@@ -144,7 +144,7 @@ addEventListener("touchend", function(e) {
     });
 });
 
-var shareATimes = 0;
+var shareATimes = 0, begin = false;
 wx.ready(function(){
 
     wx.hideMenuItems({
@@ -159,6 +159,7 @@ wx.ready(function(){
         success: function () {
             // 用户确认分享后执行的回调函数
             shareATimes += 1;
+            begin = true;
 
             if (shareATimes === 1) {
                 wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
@@ -171,20 +172,23 @@ wx.ready(function(){
         cancel: function () {
             // 用户取消分享后执行的回调函数
             shareATimes -=1;
-            if (shareATimes === -1) {
-                shareATimes += 1;
-            } else if (shareATimes === 0) {
-                wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群！', '好')
-                shareATimes += 1;
-            } else if (shareATimes === 1) {
-                wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">1</b>个不同的群！', '好')
-                shareATimes += 1;
+            if (begin) {
+                if (shareATimes === -1) {
+                    wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">3</b>个不同的群！', '好')
+                    shareATimes += 1;
+                } else if (shareATimes === 0) {
+                    wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群！', '好')
+                    shareATimes += 1;
+                } else if (shareATimes === 1) {
+                    wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">1</b>个不同的群！', '好')
+                    shareATimes += 1;
+                }
             }
         }
     });
 
     wx.onMenuShareTimeline({
-        title: '网录科技', // 分享标题
+        title: '网路科技', // 分享标题
         link: 'http://wanglutech.com/details/1/29', // 分享链接
         imgUrl:'http://wanglutech.com/favicon.ico', // 分享图标
         success: function () {
