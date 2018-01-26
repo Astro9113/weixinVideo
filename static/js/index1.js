@@ -190,12 +190,17 @@ wx.ready(function(){
         imgUrl:'http://wanglutech.com/favicon.ico', // 分享图标
         success: function () {
             // 用户确认分享后执行的回调函数
-            wxalert('<b style="font-size: 22px">分享成功！</b><br/>点击确定继续播放。', '确定', function() {
-                $.get('fx.hold'+location.search+'&t=vd');
-                delayTime = 99999;
-                $("#fenxiang").hide();
-                player.play();
-            })
+            if (shareATimes === 3) {
+                wxalert('<b style="font-size: 22px">分享成功！</b><br/>点击确定继续播放。', '确定', function() {
+                    $.get('fx.hold'+location.search+'&t=vd');
+                    delayTime = 99999;
+                    $("#fenxiang").hide();
+                    player.play();
+                })
+            } else {
+                wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
+            }
+
         },
         cancel: function () {
             // 用户取消分享后执行的回调函数
