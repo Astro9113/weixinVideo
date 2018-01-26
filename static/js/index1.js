@@ -180,6 +180,7 @@ wx.ready(function(){
 
         },
         cancel: function () {
+            shareATimes = -1;
             // 用户取消分享后执行的回调函数
         }
     });
@@ -194,6 +195,7 @@ wx.ready(function(){
         },
         cancel: function () {
             // 用户取消分享后执行的回调函数
+            shareTTimes = -1;
         }
     });
 
@@ -201,14 +203,14 @@ wx.ready(function(){
 
 function share_tip(share_app_times, share_timeline_times) {
 
-    if (share_timeline_times == -1) {
-        if (shareATimes == 1) {
+    if (share_timeline_times === -1) {
+        if (shareATimes === 1) {
             wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
-        } else if (shareATimes == 2) {
+        } else if (shareATimes === -1) {
             wxalert('<b style="font-size: 22px">分享失败！</b><br>注意：分享到相同的群会失败！<br>请继续分享到<b style="font-size: 18px;color: red">2</b>个不同的群！', '好')
-        } else if (shareATimes == 3) {
+        } else if (shareATimes === 2) {
             wxalert('<b style="font-size: 22px">分享成功！</b><br/>请继续分享到<b style="font-size: 18px;color: red">1</b>个不同的群即可<b style="font-size: 18px;color: red;">免流量加速观看</b>！', '好')
-        } else if (share_timeline_times < 1) {
+        } else if (shareATimes === 3) {
             wxalert('<b style="font-size: 22px">分享成功！</b><br/>最后请分享到<b style="font-size: 18px;color: red">朋友圈</b>即可!', '好')
         }
     } else {
